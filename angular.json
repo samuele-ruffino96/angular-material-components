@@ -22,8 +22,13 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -31,7 +36,9 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": ["highlight.js"]
+            "allowedCommonJsDependencies": [
+              "highlight.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -82,9 +89,23 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": ["src/styles.scss"],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": [],
-            "assets": ["src/favicon.ico", "src/assets"]
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
           }
         }
       }
@@ -128,6 +149,15 @@
             "tsConfig": "projects/datetime-picker/tsconfig.spec.json",
             "karmaConfig": "projects/datetime-picker/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/datetime-picker/**/*.ts",
+              "projects/datetime-picker/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -150,6 +180,15 @@
             "main": "projects/moment-adapter/src/test.ts",
             "tsConfig": "projects/moment-adapter/tsconfig.spec.json",
             "karmaConfig": "projects/moment-adapter/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/moment-adapter/**/*.ts",
+              "projects/moment-adapter/**/*.html"
+            ]
           }
         }
       }
@@ -174,6 +213,15 @@
             "tsConfig": "projects/color-picker/tsconfig.spec.json",
             "karmaConfig": "projects/color-picker/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/color-picker/**/*.ts",
+              "projects/color-picker/**/*.html"
+            ]
+          }
         }
       }
     },
@@ -196,6 +244,15 @@
             "main": "projects/file-input/src/test.ts",
             "tsConfig": "projects/file-input/tsconfig.spec.json",
             "karmaConfig": "projects/file-input/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/file-input/**/*.ts",
+              "projects/file-input/**/*.html"
+            ]
           }
         }
       }
