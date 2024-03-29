@@ -1,13 +1,13 @@
-import { PortalModule } from '@angular/cdk/portal';
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatIconModule } from '@angular/material/icon';
-import { MatInputModule } from '@angular/material/input';
-import { MatRadioModule } from '@angular/material/radio';
+import { PortalModule } from "@angular/cdk/portal";
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatIconModule } from "@angular/material/icon";
+import { MatInputModule } from "@angular/material/input";
+import { MatRadioModule } from "@angular/material/radio";
 import {
   NGX_MAT_COLOR_PICKER_SCROLL_STRATEGY_FACTORY_PROVIDER,
   NgxMatColorCanvasComponent,
@@ -15,12 +15,13 @@ import {
   NgxMatColorPaletteComponent,
   NgxMatColorPickerComponent,
   NgxMatColorPickerContentComponent,
-  NgxMatColorPickerInput, NgxMatColorSliderComponent,
+  NgxMatColorPickerInput,
+  NgxMatColorSliderComponent,
   NgxMatColorToggleComponent,
-  NgxMatColorpickerToggleIcon
-} from './components';
-import { NumericColorInputDirective } from './directives';
-import { ColorAdapter } from './services';
+  NgxMatColorpickerToggleIcon,
+} from "./components";
+import { NumericColorInputDirective } from "./directives";
+import { ColorAdapter } from "./services";
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { ColorAdapter } from './services';
     NgxMatColorPickerComponent,
     NgxMatColorToggleComponent,
     NgxMatColorpickerToggleIcon,
-    NgxMatColorPickerInput
+    NgxMatColorPickerInput,
   ],
   imports: [
     CommonModule,
@@ -45,20 +46,17 @@ import { ColorAdapter } from './services';
     ReactiveFormsModule,
     MatDialogModule,
     PortalModule,
-    MatIconModule
+    MatIconModule,
   ],
   exports: [
     NgxMatColorToggleComponent,
     NgxMatColorPickerInput,
     NgxMatColorPickerComponent,
-    NgxMatColorpickerToggleIcon
-  ],
-  entryComponents: [
-    NgxMatColorPickerContentComponent
+    NgxMatColorpickerToggleIcon,
   ],
   providers: [
     ColorAdapter,
-    NGX_MAT_COLOR_PICKER_SCROLL_STRATEGY_FACTORY_PROVIDER
-  ]
+    NGX_MAT_COLOR_PICKER_SCROLL_STRATEGY_FACTORY_PROVIDER,
+  ],
 })
-export class NgxMatColorPickerModule { }
+export class NgxMatColorPickerModule {}
