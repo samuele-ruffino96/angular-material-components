@@ -4,7 +4,6 @@ $inputWidth: 24px;
 
 .ngx-mat-timepicker {
   form {
-
     .ngx-mat-timepicker-table {
       .ngx-mat-timepicker-tbody {
         tr {
@@ -17,9 +16,7 @@ $inputWidth: 24px;
 
             &.ngx-mat-timepicker-meridian {
               .mdc-button {
-                min-width: 64px;
                 line-height: $sizeButtonMeridian;
-                border-radius: 4px;
                 min-width: 0;
                 border-radius: 50%;
                 width: $sizeButtonMeridian;
