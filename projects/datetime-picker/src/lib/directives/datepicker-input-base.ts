@@ -91,7 +91,7 @@ export abstract class NgxMatDatepickerInputBase<
       ? this._getValueFromModel(this._model.selection)
       : this._pendingValue;
   }
-  set value(value: any) {
+  set value(value: D | null) {
     this._assignValueProgrammatically(value);
   }
   protected _model: NgxMatDateSelectionModel<S, D> | undefined;
@@ -99,7 +99,7 @@ export abstract class NgxMatDatepickerInputBase<
   /** Whether the datepicker-input is disabled. */
   @Input()
   get disabled(): boolean {
-    return !!this._disabled || this._parentDisabled();
+    return this._disabled || this._parentDisabled();
   }
   set disabled(value: BooleanInput) {
     const newValue = coerceBooleanProperty(value);
@@ -138,7 +138,7 @@ export abstract class NgxMatDatepickerInputBase<
   _onTouched = () => {};
   _validatorOnChange = () => {};
 
-  private _cvaOnChange: (value: any) => void = () => {};
+  private _cvaOnChange: (value: unknown) => void = () => {};
   private _valueChangesSubscription = Subscription.EMPTY;
   private _localeSubscription = Subscription.EMPTY;
 
@@ -271,7 +271,7 @@ export abstract class NgxMatDatepickerInputBase<
   /** Whether the last value set on the input was valid. */
   protected _lastValueValid = false;
 
-  constructor(
+  protected constructor(
     protected _elementRef: ElementRef<HTMLInputElement>,
     @Optional() public _dateAdapter: NgxMatDateAdapter<D>,
     @Optional()
@@ -323,7 +323,7 @@ export abstract class NgxMatDatepickerInputBase<
   }
 
   // Implemented as part of ControlValueAccessor.
-  registerOnChange(fn: (value: any) => void): void {
+  registerOnChange(fn: (value: unknown) => void): void {
     this._cvaOnChange = fn;
   }
 
@@ -471,7 +471,7 @@ export function dateInputsHaveChanged(
 ): boolean {
   const keys = Object.keys(changes);
 
-  for (let key of keys) {
+  for (const key of keys) {
     const { previousValue, currentValue } = changes[key];
 
     if (

@@ -2,6 +2,8 @@ import {
   Directive,
   ElementRef,
   forwardRef,
+  HostBinding,
+  HostListener,
   Inject,
   Input,
   OnDestroy,
@@ -55,31 +57,14 @@ export const NGX_MAT_DATEPICKER_VALIDATORS = {
       useExisting: NgxMatDatepickerInputDirective,
     },
   ],
-  host: {
-    class: "mat-datepicker-input",
-    "[attr.aria-haspopup]": '_datepicker ? "dialog" : null',
-    "[attr.aria-owns]": "(_datepicker?.opened && _datepicker.id) || null",
-    "[attr.min]": "min ? _dateAdapter.toIso8601(min) : null",
-    "[attr.max]": "max ? _dateAdapter.toIso8601(max) : null",
-    // Used by the test harness to tie this input to its calendar. We can't depend on
-    // `aria-owns` for this, because it's only defined while the calendar is open.
-    "[attr.data-mat-calendar]": "_datepicker ? _datepicker.id : null",
-    "[disabled]": "disabled",
-    "(input)": "_onInput($event.target.value)",
-    "(change)": "_onChange()",
-    "(blur)": "_onBlur()",
-    "(keydown)": "_onKeydown($event)",
-  },
   exportAs: "ngxMatDatepickerInput",
 })
 export class NgxMatDatepickerInputDirective<D>
   extends NgxMatDatepickerInputBase<D | null, D>
   implements NgxMatDatepickerControl<D | null>, OnDestroy
 {
-  private _closedSubscription = Subscription.EMPTY;
-
   /** The datepicker that this input is associated with. */
-  @Input()
+  @Input({ required: true })
   set ngxMatDatetimePicker(
     datepicker: NgxMatDatepickerPanel<NgxMatDatepickerControl<D>, D | null, D>,
   ) {
@@ -91,11 +76,40 @@ export class NgxMatDatepickerInputDirective<D>
       this._registerModel(datepicker.registerInput(this));
     }
   }
-  _datepicker: NgxMatDatepickerPanel<
-    NgxMatDatepickerControl<D>,
-    D | null,
-    D
-  > | null = null;
+  _datepicker!: NgxMatDatepickerPanel<NgxMatDatepickerControl<D>, D | null, D>;
+  @HostBinding("disabled") private _hostDisabled: boolean = false;
+  @HostBinding("class") class = "mat-datepicker-input";
+  @HostBinding("attr.aria-haspopup") ariaHaspopup = this._datepicker
+    ? "dialog"
+    : null;
+  @HostBinding("attr.aria-owns") ariaOwns =
+    (this._datepicker?.opened && this._datepicker.id) || null;
+  @HostBinding("attr.min") minAttr = this.min
+    ? this._dateAdapter.toIso8601(this.min)
+    : null;
+  @HostBinding("attr.max") maxAttr = this.max
+    ? this._dateAdapter.toIso8601(this.max)
+    : null;
+  @HostBinding("attr.data-mat-calendar") dataMatCalendar = this._datepicker
+    ? this._datepicker.id
+    : null;
+
+  @HostListener("input", ["$event.target.value"]) hostInput = (
+    $event: string,
+  ) => this._onInput($event);
+  @HostListener("change") hostChange = () => this._onChange();
+  @HostListener("blue") hostBlur = () => this._onBlur();
+  @HostListener("keydown", ["$event"]) hostKeydown = ($event: KeyboardEvent) =>
+    this._onKeydown($event);
+
+  get hostDisabled(): boolean {
+    return this.disabled;
+  }
+
+  set hostDisabled(value: boolean) {
+    this.disabled = value;
+  }
+  private _closedSubscription = Subscription.EMPTY;
 
   /** The minimum valid date. */
   @Input()
