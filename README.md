@@ -5,6 +5,10 @@ Also expect frequent and unannounced breaking changes to the code-base in case y
 
 Rest of the README is the original content from the original project.
 
+# When will this be ready?
+Quite frankly, I don't know, but once it is, I will ask GitHub Support to detach the project from its parent repo,
+because I doubt the original author will have the time to review the already literal hundreds of file changes.
+
 # Angular Material Extra Components (DatetimePicker, TimePicker, ColorPicker, FileInput ...) for @angular/material 7.x, 8.x, 9.x, 10.x, 11.x, 12.x, 13.x, 14.x, 15.x, 16.x
 
 [![Build Status](https://travis-ci.com/h2qutc/angular-material-components.svg?branch=master)](https://travis-ci.com/h2qutc/angular-material-components)
