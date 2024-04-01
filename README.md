@@ -1,13 +1,34 @@
 # THIS FORK IS NOT READY FOR PRODUCTION USE
 This is a WIP fork of the somewhat abandoned https://github.com/h2qutc/angular-material-components project.
-Please refrain from using this fork in production environments.
+Please refrain from using this fork in production environments until further notice.
 Also expect frequent and unannounced breaking changes to the code-base in case you want to try your luck.
-
-Rest of the README is the original content from the original project.
 
 # When will this be ready?
 Quite frankly, I don't know, but once it is, I will ask GitHub Support to detach the project from its parent repo,
 because I doubt the original author will have the time to review the already literal hundreds of file changes.
+
+# Found an issue with this fork?
+Please open an issue on this repo (not the original), and I will address it as soon as possible.
+
+# Getting Started (Contributors)
+
+## Requirements
+- node >= v20.12.0
+- yarn >= 1.22.22
+- Make sure your editor utilizes prettier and eslint - beautify your code before committing <3
+
+## Steps to run the project
+
+1. Clone the repo
+2. Run `yarn install` or just `yarn`
+3. Run `yarn start` to start the development server
+
+## Useful resources
+- [Commit Conventions](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Angular Material](https://material.angular.io/)
+- [Angular Material Component Theming Guide](https://material.angular.io/guide/theming-your-components)
+- [Angular Material CDK](https://material.angular.io/cdk/overlay/overview)
+
 
 # Angular Material Extra Components (DatetimePicker, TimePicker, ColorPicker, FileInput ...) for @angular/material 7.x, 8.x, 9.x, 10.x, 11.x, 12.x, 13.x, 14.x, 15.x, 16.x
 
