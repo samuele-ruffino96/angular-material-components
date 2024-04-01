@@ -1,6 +1,6 @@
 # THIS FORK IS NOT READY FOR PRODUCTION USE
 This is a WIP fork of the somewhat abandoned https://github.com/h2qutc/angular-material-components project.
-You are free to open issues and even contribute, but please refrain from using this fork in production environments.
+Please refrain from using this fork in production environments.
 Also expect frequent and unannounced breaking changes to the code-base in case you want to try your luck.
 
 Rest of the README is the original content from the original project.
@@ -13,16 +13,6 @@ Rest of the README is the original content from the original project.
 ## Description
 
 Angular Material Library provide extra components for every project (Datetime picker, Time picker, Color picker...).
-
-Please do not hesitate to contact us if you have any question or suggestion.
-
-Feel free to open the [issues](https://github.com/h2qutc/angular-material-components/issues) or provide a PR.
-
-If you like this project, support angular-material-components by starring⭐.
-
-And thank you so much for your coffee ❤️ 
-
-<a href="https://www.buymeacoffee.com/h2qutc" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## DEMO Angular Material Components
 
