@@ -22,13 +22,8 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets"],
+            "styles": ["src/styles.scss"],
             "scripts": [],
             "vendorChunk": true,
             "extractLicenses": false,
@@ -36,9 +31,7 @@
             "sourceMap": true,
             "optimization": false,
             "namedChunks": true,
-            "allowedCommonJsDependencies": [
-              "highlight.js"
-            ]
+            "allowedCommonJsDependencies": ["highlight.js"]
           },
           "configurations": {
             "production": {
@@ -89,23 +82,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
-            "styles": [
-              "src/styles.scss"
-            ],
+            "styles": ["src/styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets"]
           }
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+            "lintFilePatterns": ["src/**/*.ts", "src/**/*.html"]
           }
         }
       }
@@ -133,7 +118,7 @@
       "root": "projects/datetime-picker",
       "sourceRoot": "projects/datetime-picker/src",
       "projectType": "library",
-      "prefix": "NgxMat",
+      "prefix": "ngx-mat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -165,7 +150,7 @@
       "root": "projects/moment-adapter",
       "sourceRoot": "projects/moment-adapter/src",
       "projectType": "library",
-      "prefix": "NgxMat",
+      "prefix": "ngx-mat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -197,7 +182,7 @@
       "root": "projects/color-picker",
       "sourceRoot": "projects/color-picker/src",
       "projectType": "library",
-      "prefix": "NgxMat",
+      "prefix": "ngx-mat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -229,7 +214,7 @@
       "root": "projects/file-input",
       "sourceRoot": "projects/file-input/src",
       "projectType": "library",
-      "prefix": "NgxMat",
+      "prefix": "ngx-mat",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
@@ -268,7 +253,7 @@
       "skipTests": true
     },
     "@schematics/angular:directive": {
-      "prefix": "ngx-mat",
+      "prefix": "ngxMat",
       "skipTests": true
     },
     "@schematics/angular:pipe": {
