@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @use "@angular/material" as mat;
+@use "highlight.js/styles/github.css";
 @use "../projects/datetime-picker/src/lib/_datepicker-theme.scss" as
   datetime-picker;
 @include mat.core();
-
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
-@import "~highlight.js/styles/github.css";
 
 body {
   margin: 0;
@@ -69,4 +67,4 @@ $ngxMat-theme: mat.define-light-theme(
 );
 
 @include mat.all-component-themes($ngxMat-theme);
-@include datetime-picker.theme($ngxMat-theme);
+@include datetime-picker.color($ngxMat-theme);
