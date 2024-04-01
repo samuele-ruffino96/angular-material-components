@@ -134,8 +134,7 @@ export class NgxMatDatepickerContentComponent<
   implements OnInit, AfterViewInit, OnDestroy
 {
   /** Reference to the datepicker that created the overlay. */
-  datepicker: NgxMatDatepickerBase<NgxMatDatepickerControl<D>, S, D> | null =
-    null;
+  datepicker!: NgxMatDatepickerBase<NgxMatDatepickerControl<D>, S, D>;
   @HostBinding("class") hostClass = "mat-datepicker-content";
   @HostBinding("[class.mat-datepicker-content-touch]")
   matDatepickerContentTouch = this.datepicker ? this.datepicker.touchUi : false;
@@ -577,17 +576,15 @@ export abstract class NgxMatDatepickerBase<
    */
   @Input()
   get panelClass(): string | string[] {
-    if (this._panelClass === null) {
-      throw Error(
-        "The panelClass property is required for the datepicker component.",
-      );
+    if (this._panelClass.length === 1) {
+      return this._panelClass[0];
     }
     return this._panelClass;
   }
   set panelClass(value: string | string[]) {
     this._panelClass = coerceStringArray(value);
   }
-  private _panelClass: string[] | null = null;
+  private _panelClass: string[] = [""];
 
   /** Whether the calendar is open. */
   @Input()

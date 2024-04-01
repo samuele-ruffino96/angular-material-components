@@ -176,9 +176,7 @@ export class NgxMatCalendarBodyComponent<D = unknown>
     private _ngZone: NgZone,
   ) {
     if (this.labelMinRequiredCells === null) {
-      throw Error(
-        "Could not initialize calendar body. Label min required cells is null.",
-      );
+      console.warn("Label min required cells is null.");
     }
     _ngZone.runOutsideAngular(() => {
       const element = _elementRef.nativeElement;
