@@ -1,3 +1,10 @@
+# THIS FORK IS NOT READY FOR PRODUCTION USE
+This is a WIP fork of the somewhat abandoned https://github.com/h2qutc/angular-material-components project.
+You are free to open issues and even contribute, but please refrain from using this fork in production environments.
+Also expect frequent and unannounced breaking changes to the code-base in case you want to try your luck.
+
+Rest of the README is the original content from the original project.
+
 # Angular Material Extra Components (DatetimePicker, TimePicker, ColorPicker, FileInput ...) for @angular/material 7.x, 8.x, 9.x, 10.x, 11.x, 12.x, 13.x, 14.x, 15.x, 16.x
 
 [![Build Status](https://travis-ci.com/h2qutc/angular-material-components.svg?branch=master)](https://travis-ci.com/h2qutc/angular-material-components)
