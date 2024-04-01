@@ -1,12 +1,12 @@
-@use 'sass:color';
-@use 'sass:map';
-@use 'sass:math';
-@use 'sass:meta';
-@use '../core/style/private';
-@use '../core/theming/theming';
-@use '../core/typography/typography';
-@use '../core/typography/typography-utils';
-@use '../button/icon-button-theme';
+@use "sass:color";
+@use "sass:map";
+@use "sass:math";
+@use "sass:meta";
+@use "../../../node_modules/@angular/material/core/theming/_theming.scss";
+@use "../../../node_modules/@angular/material/core/style/_private.scss";
+@use "../../../node_modules/@angular/material/core/typography/_typography.scss";
+@use "../../../node_modules/@angular/material/core/typography/_typography-utils.scss";
+@use "../../../node_modules/@angular/material/button/_icon-button-theme.scss";
 
 $selected-today-box-shadow-width: 1px;
 $selected-fade-amount: 0.6;
@@ -17,7 +17,8 @@ $calendar-weekday-table-font-size: 11px !default;
 
 @mixin _color($palette) {
   @include date-range-colors(
-    theming.get-color-from-palette($palette, default, $range-fade-amount));
+    theming.get-color-from-palette($palette, default, $range-fade-amount)
+  );
 
   .mat-calendar-body-selected {
     background-color: theming.get-color-from-palette($palette);
@@ -28,9 +29,11 @@ $calendar-weekday-table-font-size: 11px !default;
     $background: theming.get-color-from-palette($palette);
 
     @if (meta.type-of($background) == color) {
-      background-color: color.adjust($background, $alpha: -$selected-fade-amount);
-    }
-    @else {
+      background-color: color.adjust(
+        $background,
+        $alpha: -$selected-fade-amount
+      );
+    } @else {
       // If we couldn't resolve to background to a color (e.g. it's a CSS variable),
       // fall back to fading the content out via `opacity`.
       opacity: $today-fade-amount;
@@ -39,7 +42,7 @@ $calendar-weekday-table-font-size: 11px !default;
 
   .mat-calendar-body-today.mat-calendar-body-selected {
     box-shadow: inset 0 0 0 $selected-today-box-shadow-width
-                theming.get-color-from-palette($palette, default-contrast);
+      theming.get-color-from-palette($palette, default-contrast);
   }
 
   .cdk-keyboard-focused .mat-calendar-body-active,
@@ -56,7 +59,9 @@ $calendar-weekday-table-font-size: 11px !default;
 
 // Utility mixin to target cells that aren't selected. Used to make selector easier to follow.
 @mixin _unselected-cell {
-  &:not(.mat-calendar-body-selected):not(.mat-calendar-body-comparison-identical) {
+  &:not(.mat-calendar-body-selected):not(
+      .mat-calendar-body-comparison-identical
+    ) {
     @content;
   }
 }
@@ -121,8 +126,7 @@ $calendar-weekday-table-font-size: 11px !default;
       // for a solid border, but because we're using a dashed border for the
       // preview range, we need to bump its opacity to ensure that it's visible.
       color: rgba($divider-color, math.min(opacity($divider-color) * 2, 1));
-    }
-    @else {
+    } @else {
       color: $divider-color;
     }
   }
@@ -141,8 +145,7 @@ $calendar-weekday-table-font-size: 11px !default;
 
       @if (meta.type-of($color) == color) {
         border-color: color.adjust($color, $alpha: -$today-fade-amount);
-      }
-      @else {
+      } @else {
         // If the color didn't resolve to a color value, but something like a CSS variable, we can't
         // fade it out so we fall back to reducing the element opacity. Note that we don't use the
         // $mat-datepicker-today-fade-amount, because hint text usually has some opacity applied
@@ -191,12 +194,13 @@ $calendar-weekday-table-font-size: 11px !default;
 
 @mixin typography($config-or-theme) {
   $config: typography.private-typography-to-2014-config(
-      theming.get-typography-config($config-or-theme));
+    theming.get-typography-config($config-or-theme)
+  );
   .mat-calendar {
     font-family: typography-utils.font-family($config);
   }
 
-  .ngx-mat-timepicker{
+  .ngx-mat-timepicker {
     font-family: typography-utils.font-family($config);
   }
 
@@ -224,8 +228,8 @@ $calendar-weekday-table-font-size: 11px !default;
   $range-color,
   $comparison-color: rgba(#f9ab00, $range-fade-amount),
   $overlap-color: #a8dab5,
-  $overlap-selected-color: color.adjust($overlap-color, $lightness: -30%)) {
-
+  $overlap-selected-color: color.adjust($overlap-color, $lightness: -30%)
+) {
   .mat-calendar-body-in-range::before {
     background: $range-color;
   }
@@ -236,13 +240,21 @@ $calendar-weekday-table-font-size: 11px !default;
   }
 
   .mat-calendar-body-comparison-bridge-start::before,
-  [dir='rtl'] .mat-calendar-body-comparison-bridge-end::before {
-    background: linear-gradient(to right, $range-color 50%, $comparison-color 50%);
+  [dir="rtl"] .mat-calendar-body-comparison-bridge-end::before {
+    background: linear-gradient(
+      to right,
+      $range-color 50%,
+      $comparison-color 50%
+    );
   }
 
   .mat-calendar-body-comparison-bridge-end::before,
-  [dir='rtl'] .mat-calendar-body-comparison-bridge-start::before {
-    background: linear-gradient(to left, $range-color 50%, $comparison-color 50%);
+  [dir="rtl"] .mat-calendar-body-comparison-bridge-start::before {
+    background: linear-gradient(
+      to left,
+      $range-color 50%,
+      $comparison-color 50%
+    );
   }
 
   .mat-calendar-body-in-range > .mat-calendar-body-comparison-identical,
@@ -268,7 +280,10 @@ $calendar-weekday-table-font-size: 11px !default;
 
 @mixin theme($theme-or-color-config) {
   $theme: theming.private-legacy-get-theme($theme-or-color-config);
-  @include theming.private-check-duplicate-theme-styles($theme, 'mat-datepicker') {
+  @include theming.private-check-duplicate-theme-styles(
+    $theme,
+    "mat-datepicker"
+  ) {
     $color: theming.get-color-config($theme);
     $density: theming.get-density-config($theme);
     $typography: theming.get-typography-config($theme);
