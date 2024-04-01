@@ -1,4 +1,4 @@
-@use "../../../../../../node_modules/@angular/cdk/index";
+@use "../../../../../../node_modules/@angular/cdk/index" as cdk;
 
 @mixin fill {
   top: 0;
